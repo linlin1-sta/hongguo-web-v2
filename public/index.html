@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>红果短剧 · 手机版 v2</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <div class="logo">红果短剧</div>
+  <form id="searchForm"><input id="q" placeholder="搜剧名，如：太奶奶" autocomplete="off"><button>搜索</button></form>
+</header>
+<main id="view"></main>
+<div id="player" class="hidden">
+  <button id="closePlayer">✕ 关闭</button>
+  <video id="video" controls playsinline></video>
+  <div id="playStatus"></div>
+  <div id="epBar"></div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

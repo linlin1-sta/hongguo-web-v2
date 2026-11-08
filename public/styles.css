@@ -1,0 +1,20 @@
+*{box-sizing:border-box}body{margin:0;background:#111;color:#eee;font-family:-apple-system,"PingFang SC",sans-serif}
+header{position:sticky;top:0;background:#1a1a1a;padding:10px;display:flex;gap:8px;align-items:center;z-index:5}
+.logo{color:#ff3b30;font-weight:700;white-space:nowrap}
+#searchForm{flex:1;display:flex;gap:6px}#q{flex:1;padding:8px;border-radius:8px;border:1px solid #333;background:#222;color:#eee}
+button{background:#ff3b30;color:#fff;border:0;border-radius:8px;padding:8px 12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#1c1c1c;border-radius:10px;overflow:hidden;cursor:pointer}
+.card img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#222;display:block}
+.card .t{padding:8px;font-size:14px;line-height:1.35}.card .b{color:#ff9500;font-size:12px;padding:0 8px 8px}
+.detail{padding:12px}.detail img{width:120px;border-radius:8px;float:left;margin:0 12px 8px 0}
+.eps{clear:both;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px}
+.eps button{background:#262626;font-size:13px;padding:8px 0}.eps button.on{background:#ff3b30}
+#player{position:fixed;inset:0;background:#000;z-index:20;display:flex;flex-direction:column}
+#player.hidden{display:none}
+#video{width:100%;flex:1;background:#000}
+#closePlayer{align-self:flex-end;margin:8px}
+#playStatus{padding:8px 12px;color:#ffb340;font-size:14px}
+#epBar{display:flex;gap:6px;overflow-x:auto;padding:8px}
+#epBar button{background:#262626;white-space:nowrap}#epBar button.on{background:#ff3b30}
+.msg{padding:20px 12px;color:#aaa}.err{color:#ff6b60}
