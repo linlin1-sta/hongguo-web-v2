@@ -48,6 +48,7 @@ async function playEpisode(i){
   playStatus.textContent=`正在准备第${ep.number}集（取流→解密→转码，首次约需十几秒）…`;
   video.removeAttribute('src'); video.load();
   clearInterval(pollTimer);
+  const pollStart=Date.now();
   const tick=async()=>{
     try{
       const st=await getJSON('/api/prepare/'+ep.id);
@@ -58,9 +59,16 @@ async function playEpisode(i){
         video.play().catch(()=>{});
       }else if(st.status==='error'){
         clearInterval(pollTimer);
-        playStatus.textContent='播放准备失败：'+(st.error||'未知错误');
+        // v2.1：失败原因优先用人话 reason，detail 是技术摘要（错误名/消息/码），与 reason 重复时不重复显示
+        const reason=st.reason||st.error||'未知错误';
+        const detail=st.detail && st.detail!==reason ? `（${st.detail}）` : '';
+        playStatus.textContent='播放准备失败：'+reason+detail;
+      }else if(Date.now()-pollStart>300000){
+        clearInterval(pollTimer);
+        playStatus.textContent=`第${ep.number}集准备超时（等了5分钟还在「${st.stage||st.status}」），请关掉重开这一集试试`;
       }else{
-        playStatus.textContent=`正在准备第${ep.number}集：${st.stage||st.status}…`;
+        const secs=st.elapsedMs?Math.round(st.elapsedMs/1000):Math.round((Date.now()-pollStart)/1000);
+        playStatus.textContent=`正在准备第${ep.number}集：${st.stage||st.status}…（已等 ${secs} 秒）`;
       }
     }catch(e){ /* 继续轮询 */ }
   };

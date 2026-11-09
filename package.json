@@ -1,1 +1,1 @@
-{"dependencies":{"axios":"1.13.6"},"description":"红果短剧手机网页版 v2：bridge 目录数据 + hongguo-drama 路A 搜索/取流 + 服务端解密转码","engines":{"node":">=22"},"license":"GPL-3.0-only","main":"server.js","name":"hongguo-web-v2","private":true,"scripts":{"start":"node server.js"},"version":"2.0.0"}
+{"dependencies":{"axios":"1.13.6"},"description":"红果短剧手机网页版 v2.1：bridge 目录数据 + hongguo-drama 路A 搜索/取流 + 服务端解密转码（v2.1：全程日志+取流重试+失败原因回显）","engines":{"node":">=22"},"license":"GPL-3.0-only","main":"server.js","name":"hongguo-web-v2","private":true,"scripts":{"start":"node server.js"},"version":"2.1.0"}
