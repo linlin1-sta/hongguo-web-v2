@@ -1,1 +1,17 @@
-{"dependencies":{"axios":"1.13.6"},"description":"红果短剧手机网页版 v2.1：bridge 目录数据 + hongguo-drama 路A 搜索/取流 + 服务端解密转码（v2.1：全程日志+取流重试+失败原因回显）","engines":{"node":">=22"},"license":"GPL-3.0-only","main":"server.js","name":"hongguo-web-v2","private":true,"scripts":{"start":"node server.js"},"version":"2.1.0"}
+{
+ "dependencies": {
+  "axios": "1.13.6"
+ },
+ "description": "红果短剧手机网页版 v2.2：bridge 目录数据 + hongguo-drama 路A 搜索/取流 + 服务端解密直拷 HEVC 为主路、H.264 转码为按需备路（v2.1 全程日志/重试/原因回显 + v2.2 single-flight/失败冷却/ffmpeg 自检与信号日志）",
+ "engines": {
+  "node": ">=22"
+ },
+ "license": "GPL-3.0-only",
+ "main": "server.js",
+ "name": "hongguo-web-v2",
+ "private": true,
+ "scripts": {
+  "start": "node server.js"
+ },
+ "version": "2.2.0"
+}
