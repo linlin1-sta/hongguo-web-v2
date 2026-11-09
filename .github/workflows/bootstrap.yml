@@ -1,0 +1,22 @@
+name: bootstrap
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and extract package
+        run: |
+          curl -fL -o /tmp/pkg.tar.gz "https://muse.ai/files/1252283737977069/1856900928633659/ypvilp8uyjvxb1ysnqv43qz8/hongguo-web-v22-deploy.tar.gz"
+          tar -xzf /tmp/pkg.tar.gz -C .
+          rm -rf .github
+      - name: Commit package
+        run: |
+          git config user.name "bootstrap"
+          git config user.email "bootstrap@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Update to v2.2 copy-mode"
+          git push
